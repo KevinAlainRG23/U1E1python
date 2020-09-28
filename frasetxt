@@ -1,0 +1,40 @@
+from numpy import array
+from collections import Counter
+
+archivo=open("frase.txt","r")#lee el archio
+
+
+frasee ="esta frase no esta  ordenada"#variable que va a tener la frase para comparar
+f= frasee.split()# recorremos la frase y la almacenamos en f
+
+
+oracion=archivo.read()#creamos una variable llamada oracion que va a ser igual
+						#al contenido del archivo cuando se este leyendo
+recorrido=oracion.split()#la variable recorrido va a recorrer a la variable oracion y su contenido lo tranfomara a una lista
+
+ark=len(f) #almacenamos en ark la longitud de la f osea la frase
+
+
+
+#impreciones
+print("====LA FRASE DEL ARCHIVO ES:===")
+print(oracion)
+print("===================")
+
+print("===LA FRASE EN EL ARREGLO ES====")
+print(recorrido)
+print("===================")
+
+print("===LA FRASE EN ORDEN ES:===")
+auxiliar=[ None ]*ark
+ordenado=" "
+#el show para acomodarlo
+for i in range(0, len(recorrido)):
+	for j in range(0, len(recorrido)):
+		if Counter(recorrido[i]) == Counter(f[j]):
+			auxiliar[j] = recorrido[i]
+
+for i in range(0, len(auxiliar)):
+	ordenado +=auxiliar[i]+""
+	print(ordenado)
+print("================")
